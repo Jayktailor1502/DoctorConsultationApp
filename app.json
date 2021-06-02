@@ -1,0 +1,12 @@
+{
+  "name": "docConsultationApp",
+  "displayName": "docConsultationApp",
+  "expo": {
+    "name": "docConsultationApp",
+    "slug": "docConsultationApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

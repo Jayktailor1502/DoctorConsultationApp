@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "241577012330",
+    "project_id": "loginapp-5c068",
+    "storage_bucket": "loginapp-5c068.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241577012330:android:f732f7b4d72a5a933aae13",
+        "android_client_info": {
+          "package_name": "com.docconsultationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241577012330-lh8mk3pvagtbjtakldfm5v0sga6k13ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94i6JozxrbtnBpP1Lx_oZM_CsQRvhCx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241577012330-lh8mk3pvagtbjtakldfm5v0sga6k13ku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "241577012330-47i2jqur6bi08evpmi2du8cour70k4m8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.name.docConsultationApp",
+                "app_store_id": "15021999"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

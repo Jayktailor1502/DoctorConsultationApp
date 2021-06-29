@@ -40,27 +40,26 @@ const FinalScreen = ({ navigation }) => {
         return (
             console.log("item"),
             console.log(item),
-            <View style={styles.list}>
-                <Text>{item.Title}</Text>
-                <Text style={styles.btn}>Doctor Name : {item.Name}</Text>
-                <Text>{item.Date}</Text>
-                <Text>{item.Time}</Text>
+            <View style={styles.item}>
+                <Text style={styles.list}>Doctor  : {item.Name}</Text>
+                <Text style={styles.list}>Date     : {item.Date}</Text>
+                <Text style={styles.list}>Time    : {item.Time}</Text>
             </View>
         )
     }
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <FlatList
                 data={data}
                 keyExtractor={(item, index) => 'item' + index}
                 renderItem={renderItem}
             />
             <Button
-                    onPress={() => navigation.navigate('Available Consultations')}
-                    title="Book one more appointment"
-                    color="#2e64e5"
-                />
+                onPress={() => navigation.navigate('Available Consultations')}
+                title="Book one more appointment"
+                color="#2e64e5"
+            />
         </View>
     )
 }
@@ -72,13 +71,17 @@ const styles = StyleSheet.create({
         color: '#2e64e5',
         fontFamily: 'Lato-Regular',
     },
+    item: {
+        backgroundColor: '#4569',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 8,
+    },
     list: {
-        padding: 16,
-        marginTop: 16,
-        borderColor: '#bbb',
-        borderWidth: 2,
-        borderStyle: 'dashed',
-        borderRadius: 15,
+        fontSize: 18,
+        fontWeight: '300',
+        color: '#111',
+        fontFamily: 'Lato-Regular',
     },
 })
 

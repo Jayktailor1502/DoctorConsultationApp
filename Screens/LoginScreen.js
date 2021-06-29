@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
     position: 'relative'
   },
   eyeBtn : {
-    // marginBottom: 20,
     position: "absolute",
     right: 35,
     bottom: 193,

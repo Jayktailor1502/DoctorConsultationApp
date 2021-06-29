@@ -22,13 +22,6 @@ const FormInput = ({ labelValue, placeholderText, iconType,secureTextEntry, ...r
         {...rest}
       />
     </View>
-    {/* <View>
-      {eye ? 
-        <TextBox onChangeText={(text) => console.log('onChangeText: ', text)} />
-         : 
-         null
-      }
-    </View> */}
     </>
   );
 };

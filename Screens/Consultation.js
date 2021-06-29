@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { View, Text, Button, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import database from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Consultation = ({ route, navigation }) => {
     const [data, setData] = useState([]);
@@ -13,11 +14,26 @@ const Consultation = ({ route, navigation }) => {
     const headerRight = () => {
         navigation.setOptions({
             headerRight: () => (
-                <Button
-                    onPress={() => setClear(true)}
-                    title="Clear"
-                    color="#2e64e5"
-                />
+                // <Button
+                //     onPress={() => setClear(true)}
+                //     title="Clear"
+                //     color="#2e64e5"
+                // />
+                <TouchableOpacity onPress={() => {
+                    setClear(false)
+                    console.log('filter clear = ' + clear)
+                    console.log('filter filter = ' + filter)
+                    navigation.navigate('Filter', {
+                        data: { data },
+                        otherParam: 'anything you want here',
+                    });
+                }}>
+                    <Icon
+                        name='filter'
+                        size={27}
+                        color="#111"
+                    />
+                </TouchableOpacity>
             ),
         });
     }
@@ -53,11 +69,11 @@ const Consultation = ({ route, navigation }) => {
     const renderItem = ({ item, index }) => {
         return (
             <>
-            <View style={styles.item}>
-                <Text style={styles.list}>Doctor  : {item.Name}</Text>
-                <Text style={styles.list}>Date     : {item.Date}</Text>
-                <Text style={styles.list}>Time    : {item.Time}</Text>
-            </View>
+                <View style={styles.item}>
+                    <Text style={styles.list}>Doctor  : {item.Name}</Text>
+                    <Text style={styles.list}>Date     : {item.Date}</Text>
+                    <Text style={styles.list}>Time    : {item.Time}</Text>
+                </View>
             </>
         )
     }
@@ -79,27 +95,12 @@ const Consultation = ({ route, navigation }) => {
 
     return (
         <>
-            <View>
-                <Button style={styles.button}
-                    title="Filter"
-                    onPress={() => {
-                        setClear(false)
-                        console.log('filter clear = ' + clear)
-                        console.log('filter filter = ' + filter)
-                        navigation.navigate('Filter', {
-                            data: { data },
-                            otherParam: 'anything you want here',
-                        });
-                    }}
-                />
-            </View>
             <View style={{ flex: 1 }}>
                 <FlatList
                     data={calData(clear, filter)}
                     keyExtractor={(item, index) => 'item' + index}
                     renderItem={renderItem}
                 />
-            </View>
             <View style={styles.button_view}>
                 <Button style={styles.btn}
                     title="Book An Apointment"
@@ -109,6 +110,7 @@ const Consultation = ({ route, navigation }) => {
                     title="Show my Bookings"
                     onPress={() => { navigation.navigate('Confirmed Appointments') }}
                 />
+            </View>
             </View>
         </>
     )
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 8,
     },
     btn: {
-        fontSize: 18,
+        fontSize: 25,
         fontWeight: '500',
         color: '#2e64e5',
         fontFamily: 'Lato-Regular',
@@ -137,23 +139,34 @@ const styles = StyleSheet.create({
     list: {
         fontSize: 18,
         fontWeight: '300',
-        color: '#456',
+        color: 'darkblue',
         fontFamily: 'Lato-Regular',
-    },
-    button: {
-        fontSize: 25,
-        fontWeight: '500',
-        color: '#2e64e5',
-        fontFamily: 'Lato-Regular',
-        width: 200,
     },
     button_view: {
-        fontSize: 18,
+        width: '100%',
+        fontSize: 20,
         fontWeight: '500',
         color: '#2e64e5',
         fontFamily: 'Lato-Regular',
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+        backgroundColor: 'skyblue',
     }
 })
 
 export default Consultation
 // #f9c2ff
+{/* <View>
+                <Button style={styles.button}
+                    title="Filter"
+                    onPress={() => {
+                        setClear(false)
+                        console.log('filter clear = ' + clear)
+                        console.log('filter filter = ' + filter)
+                        navigation.navigate('Filter', {
+                            data: { data },
+                            otherParam: 'anything you want here',
+                        });
+                    }}
+                />
+            </View> */}
